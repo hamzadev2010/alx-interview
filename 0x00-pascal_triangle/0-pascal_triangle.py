@@ -1,27 +1,25 @@
 #!/usr/bin/python3
+"""Triangle of pascale """
+
+
 def pascal_triangle(n):
     """
     Create a function def pascal_triangle(n)
     """
-    triangle = []
-
     if n <= 0:
-        return triangle
+        return []
 
-    i = 0
-    while i < n:
-        row = []
-        j = 0
-        while j <= i:
-            if j == 0 or j == i:
-                row.append(1)
-            else:
-                if i >= 2:
-                    x = triangle[i - 1][j - 1]
-                    y = triangle[i - 1][j]
-                    row.append(x + y)
-            j += 1
-        triangle.append(row)
-        i += 1
+    pascal_triangle = [[1]]
 
-    return triangle
+    for i in range(1, n):
+        row = [1]
+
+        for j in range(1, i):
+            prev_row = pascal_triangle[i - 1]
+            new_value = prev_row[j - 1] + prev_row[j]
+            row.append(new_value)
+
+        row.append(1)
+        pascal_triangle.append(row)
+
+    return pascal_triangle
