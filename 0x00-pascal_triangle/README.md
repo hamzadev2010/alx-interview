@@ -1,1 +1,1 @@
-my readme for  0x00-pascal_triangle
+readme for pascale triangle.
