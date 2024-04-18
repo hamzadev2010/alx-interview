@@ -1,27 +1,32 @@
+#!/usr/bin/python3
+'''LockBoxes'''
+
+
 def canUnlockAll(boxes):
-    '''LockBoxes Challenge'''
+    """
+    cheking whether all lockboxes can be opened.
 
-  """
-    Checking if all lockboxes can be opened.
-
-    Parameters:
-        boxes (list of lists): Boxes and their keys.
+    Args:
+        boxes : A list have lockboxes represented as lists of keys.
 
     Returns:
-        bool: True if all boxes can be opened, False otherwise.
+        bool: True if boxes can be opened; False otherwise.
     """
+    # Initialize a set to keep track of opened boxes
+    unlocked_boxes = set([0])
 
-    unlocked = [False] * len(boxes)
-    unlocked[0] = True  # The first box is always unlocked initially
-    stack = [0]  # Start with the first box
+    # Function to recursively open boxes
+    def open_box(box_index):
+        # Mark the current box as opened
+        unlocked_boxes.add(box_index)
+        
+        # Open all the boxes that can be opened from the current box
+        for key in boxes[box_index]:
+            if key not in unlocked_boxes and key < len(boxes):
+                open_box(key)
 
-    # Explore boxes using Depth-First Search
-    while stack:
-        current_box = stack.pop()
-        for next_box in boxes[current_box]:
-            if next_box < len(boxes) and not unlocked[next_box]:
-                unlocked[next_box] = True
-                stack.append(next_box)
-
-    # Check if all boxes are unlocked
-    return all(unlocked)
+    # Start by opening the first box
+    open_box(0)
+    
+    # Check if all boxes are either opened or reachable
+    return len(unlocked_boxes) == len(boxes)
