@@ -1,15 +1,16 @@
 #!/usr/bin/python3
 '''LockBoxes'''
 
+
 def canUnlockAll(boxes):
     """
-    Checking whether all lockboxes can be opened.
+    cheking whether all lockboxes can be opened.
 
     Args:
-        boxes : A list have lockboxes, each represented as a list of keys.
+        boxes : A list have lockboxes represented as lists of keys.
 
     Returns:
-        bool: True if boxes can be opened; False.
+        bool: True if boxes can be opened; False otherwise.
     """
     # Initialize a set to keep track of opened boxes
     unlocked_boxes = set([0])
