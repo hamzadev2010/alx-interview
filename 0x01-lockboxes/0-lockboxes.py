@@ -19,7 +19,7 @@ def canUnlockAll(boxes):
     def open_box(box_index):
         # Mark the current box as opened
         unlocked_boxes.add(box_index)
-        
+
         # Open all the boxes that can be opened from the current box
         for key in boxes[box_index]:
             if key not in unlocked_boxes and key < len(boxes):
@@ -27,6 +27,6 @@ def canUnlockAll(boxes):
 
     # Start by opening the first box
     open_box(0)
-    
+
     # Check if all boxes are either opened or reachable
     return len(unlocked_boxes) == len(boxes)
