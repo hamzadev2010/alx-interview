@@ -3,12 +3,12 @@
 
 def canUnlockAll(boxes):
     """
-    Checking if all lockboxes can be opened.
+    Checks if all lockboxes can be opened.
 
-    Parameters
+    Parameters:
         boxes (list of lists): Boxes and their keys.
 
-    Returns
+    Returns:
         bool: True if all boxes can be opened, False otherwise.
     """
 
@@ -22,5 +22,5 @@ def canUnlockAll(boxes):
             open_box(key)
 
     open_box(0)
-
+    
     return len(opened_boxes) == len(boxes)
