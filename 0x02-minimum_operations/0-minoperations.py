@@ -3,8 +3,6 @@
 of operations needed to result in exactly n H characters in the file."""
 
 def minOperations(n):
-""" def minOperations(n) calculates the fewest number of operations
-and give us the minimum to get the result"""
 
     if n < 2:
         return 0
