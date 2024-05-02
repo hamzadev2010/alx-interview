@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""script that reads stdin line by line and computes metrics:"""
-
+""" script that reads stdin line by line and computes metrics"""
 import sys
+import re
 
 def display_statistics(status_stats: dict, total_size: int) -> None:
     print("Total File Size: {:d}".format(total_size))
@@ -17,17 +17,12 @@ def parse_input_lines(input_lines: iter) -> None:
         line = input_lines.readline()
         while line:
             line_count += 1
-            data = line.split()
-            try:
-                status_code = data[-2]
+            match = re.match(r'.* (.{3}) (\d+)$', line.strip())
+            if match:
+                status_code, size = match.groups()
                 if status_code in status_stats:
                     status_stats[status_code] += 1
-            except IndexError:
-                pass
-            try:
-                total_size += int(data[-1])
-            except ValueError:
-                pass
+                total_size += int(size)
             if line_count % 10 == 0:
                 display_statistics(status_stats, total_size)
             line = input_lines.readline()
