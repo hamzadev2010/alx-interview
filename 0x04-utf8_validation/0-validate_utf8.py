@@ -1,8 +1,3 @@
-#!/usr/bin/python3
-"""script of method that determines if a
- given data set represents a valid UTF-8 encoding."""
-
-
 def validUTF8(data):
     numofbyte = 0
     # loop to return the number of bytes
@@ -22,3 +17,5 @@ def validUTF8(data):
                 return False
 
         numofbyte -= 1
+
+    return numofbyte == 0
