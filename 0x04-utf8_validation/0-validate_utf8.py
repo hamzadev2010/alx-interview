@@ -5,7 +5,7 @@
 
 def validUTF8(data):
     numofbyte = 0
-"""loop to return the number of bytes"""
+    # loop to return the number of bytes
     for num in data:
         bnr = format(num, "#010b")[-8:]
         if numofbyte == 0:
@@ -22,4 +22,3 @@ def validUTF8(data):
                 return False
 
         numofbyte -= 1
-    return numofbyte == 0
