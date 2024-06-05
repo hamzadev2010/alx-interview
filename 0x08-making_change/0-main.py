@@ -1,4 +1,3 @@
-carrie@ubuntu:~/0x08-making_change$ cat 0-main.py
 #!/usr/bin/python3
 """
 Main file for testing
